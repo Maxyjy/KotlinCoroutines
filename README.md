@@ -1,2 +1,2 @@
 # KotlinCoroutines
- kotlin coroutines network request practice demo
+use kotlin coroutines handle serial or parallel network request practice demo
