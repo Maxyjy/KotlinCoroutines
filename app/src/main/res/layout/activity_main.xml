@@ -76,23 +76,14 @@
 
 
         <Button
-            android:id="@+id/btn_single_network_request"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
-            android:text="Single Network Request"
-            android:textAllCaps="false"
-            app:layout_constraintTop_toBottomOf="@id/tv_comment" />
-
-        <Button
             android:id="@+id/btn_serial_network_request"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            app:layout_constraintTop_toBottomOf="@id/tv_comment"
             android:text="Serial Network Request"
             android:textAllCaps="false"
-            app:layout_constraintTop_toBottomOf="@id/btn_single_network_request" />
+             />
 
         <Button
             android:id="@+id/btn_parallel_network_request"

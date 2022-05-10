@@ -1,9 +1,9 @@
 package com.starline.coroutine
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.starline.coroutine.databinding.ActivityMainBinding
@@ -34,10 +34,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        binding.btnSingleNetworkRequest.setOnClickListener {
-            viewModel.getComment(1)
-            viewModel.getUser()
-        }
+
 
         binding.btnSerialNetworkRequest.setOnClickListener {
             viewModel.serialRequest()
@@ -52,13 +49,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         collect()
-        viewModel.getComment(1)
-        viewModel.getUser()
+        
+        viewModel.parallelRequest()
     }
 
-    /**
-     * single network request
-     */
     private fun collect() {
         //collect comment result flow
         lifecycleScope.launch {
@@ -86,7 +80,7 @@ class MainActivity : AppCompatActivity() {
 
         //collect user result flow
         lifecycleScope.launch {
-            viewModel.usersFlow.collect{
+            viewModel.usersFlow.collect {
                 Log.d(TAG, "[User] Status:${it.status.name} Content:${it.data?.name}")
                 when (it.status) {
                     //show loading progress bar
@@ -108,7 +102,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
 
 
 }
